@@ -11,13 +11,13 @@
     </script>
   </head>
   <body>
-    <button onclick="api.goBack()">zpět</button>
-    <button onclick="api.loadURL('https://seznam.cz')">domu</button>
+    <button onclick="api.goBack()">Back</button>
+    <button onclick="api.loadURL('https://seznam.cz')">Home</button>
     <input id="url">
-    <button onclick="navigate()">přejít</button>
+    <button onclick="navigate()">Go</button>
   </body>
     <script>
-      //musi byt na konci protoze to ma to getelement... - pracuje s DOM a tim padem uz ho musi mit zejo
+      //this script must be at the end because it works with DOM (thus needs to have it already)
       const urlInput = document.getElementById("url")
     </script>
 </html>
