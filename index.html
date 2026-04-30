@@ -2,22 +2,34 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>negative navigator</title>
+    <title id="title">negative navigator</title>
     <script>
       function navigate(){
         dest = urlInput.value
+        if(dest.length == 0) {return}
+        if(!dest.startsWith("http")){dest = "http://"+dest}
         api.loadURL(dest)
       }
+      window.api.onUrlChange((url) => {
+        urlInput.value = url
+        windowTitle.innerText = url + " - negative navigator"
+      })
     </script>
+    <style>
+    button{margin:0};
+    input{margin:0};
+
+    </style>
   </head>
   <body>
     <button onclick="api.goBack()">Back</button>
     <button onclick="api.loadURL('https://seznam.cz')">Home</button>
-    <input id="url">
+    <input id="url" style="width:80%">
     <button onclick="navigate()">Go</button>
   </body>
     <script>
       //this script must be at the end because it works with DOM (thus needs to have it already)
       const urlInput = document.getElementById("url")
+      const windowTitle = document.getElementById("title")
     </script>
 </html>
