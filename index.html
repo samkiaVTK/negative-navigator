@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>negative navigator</title>
+    <script>
+      function navigate(){
+        dest = urlInput.value
+        api.loadURL(dest)
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="api.goBack()">zpět</button>
+    <button onclick="api.loadURL('https://seznam.cz')">domu</button>
+    <input id="url">
+    <button onclick="navigate()">přejít</button>
+  </body>
+    <script>
+      //musi byt na konci protoze to ma to getelement... - pracuje s DOM a tim padem uz ho musi mit zejo
+      const urlInput = document.getElementById("url")
+    </script>
+</html>
