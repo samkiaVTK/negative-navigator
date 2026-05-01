@@ -42,5 +42,5 @@ window.api.onUrlChange((url) => {
 	document.title = url + " - negative navigator"
 })
 ```
-we now have event which is handled by specified code - to change URL input value, and also window title(by editing innerText of <title> element
+we now have event which is handled by specified code - to change URL input value, and also window title
 
