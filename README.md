@@ -7,7 +7,7 @@ for the first one... we'll simply add some inline CSS to make it wider (it still
 <input id="url" style="width:80%">
 ```
 now we can at least see where we are.
-another simple fix is that with http in url - we will simply add it (note that it won't work with https - but most modern websites will redirect us, which is enough for now)
+another simple fix is that with http in url - we will simply add it *note that this is not ideal since there are more URLs than http://, but for now it's ok. Also we redirect to http and not https, determining which of them to use is too complex for this example project, most websites will redirect all http traffic to https, which must be enough for now*
 ```
 function navigate(){
         dest = urlInput.value
