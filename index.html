@@ -16,16 +16,18 @@
       })
     </script>
     <style>
-    button{margin:0};
-    input{margin:0};
+    button{margin:0; padding:0}
+    input{margin:0}
 
     </style>
   </head>
   <body>
-    <button onclick="api.goBack()">Back</button>
+    <button onclick="api.goBack()">&lt;-</button>
+    <button onclick="api.goForward()">-></button>
     <button onclick="api.loadURL('https://seznam.cz')">Home</button>
+    <button onclick="api.reload()">&infin;</button>
     <input id="url" style="width:80%">
-    <button onclick="navigate()">Go</button>
+    <button onclick="navigate()">Go!</button>
   </body>
     <script>
       //this script must be at the end because it works with DOM (thus needs to have it already)
