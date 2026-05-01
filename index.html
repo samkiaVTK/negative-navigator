@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title id="title">negative navigator</title>
+    <title>negative navigator</title>
     <script>
       function navigate(){
         dest = urlInput.value
@@ -12,7 +12,7 @@
       }
       window.api.onUrlChange((url) => {
         urlInput.value = url
-        windowTitle.innerText = url + " - negative navigator"
+        document.title = url + " - negative navigator"
       })
     </script>
     <style>
@@ -30,6 +30,5 @@
     <script>
       //this script must be at the end because it works with DOM (thus needs to have it already)
       const urlInput = document.getElementById("url")
-      const windowTitle = document.getElementById("title")
     </script>
 </html>
