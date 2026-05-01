@@ -44,3 +44,5 @@ window.api.onUrlChange((url) => {
 ```
 we now have event which is handled by specified code - to change URL input value, and also window title
 
+I have also done some other stuff, but it's on same principes so i will not explain more.
+
