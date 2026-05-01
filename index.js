@@ -17,8 +17,7 @@ function createWindow() {
 function loadWebView() {
   view = new WebContentsView()
   win.contentView.addChildView(view)
-  view.webContents.loadURL('https://google.com')
-  view.setBounds({ x: 0, y: 50, width: 800, height: 550 })
+  view.webContents.loadURL('https://github.com/samkiaVTK/negative-navigator')
   view.webContents.on('did-navigate', (event, url) => {//callback when changing URL
     win.webContents.send('url-changed', url)
   })
@@ -39,7 +38,18 @@ ipcMain.on('reload', () => {
 ipcMain.on('load-url', (event, url) => {
   view.webContents.loadURL(url)
 })
+function resizeWv() {
+  const bounds = win.getBounds();
+  view.setBounds({
+    x: 0,
+    y: 50,
+    width: bounds.width,
+    height: bounds.height,
+  })
+}
 app.whenReady().then(() => {
   createWindow()
   loadWebView()
+  win.on('resize',resizeWv)
+  resizeWv()
 })

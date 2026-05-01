@@ -1,13 +1,14 @@
 {
-  "name": "electron1",
+  "name": "negative-navigator",
   "version": "1.0.0",
-  "description": "prvni pokus",
+  "description": "showcase of electron as web browser",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
+    "trace": "electron . --trace-warnings",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

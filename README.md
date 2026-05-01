@@ -43,6 +43,23 @@ window.api.onUrlChange((url) => {
 })
 ```
 we now have event which is handled by specified code - to change URL input value, and also window title
-
-I have also done some other stuff, but it's on same principes so i will not explain more. We will also add keyboard shortcuts and more for better ux, but that's for next part (we will use something new which I consider deserves it's own "chapter").
-
+### Making webContentView autoresize
+This is really simple, all that's needed is to create function which will handle resizing and set WCV's size to match it, see below
+```
+function resizeWv() {
+  const bounds = win.getBounds();
+  view.setBounds({
+    x: 0,
+    y: 50,
+    width: bounds.width,
+    height: bounds.height,
+  })
+}
+app.whenReady().then(() => {
+  createWindow()
+  loadWebView()
+  win.on('resize',resizeWv)
+  resizeWv() //call this function once at startup to set size
+})
+```
+I have also done some other stuff, but it's on same principes so i will not explain more.
