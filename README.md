@@ -1,7 +1,7 @@
 From previous chapter (in branch basic functionality) we should have some... basic functionality. Now we will make it (a little) more usable.
 
 ## URL input
-first thing that annoys me is that URL input field, it's too small, needs to have http/s://... and does not change when you navigate.
+first thing that annoys me is that URL input field, it's too small, needs to have http/s://... , does not work with enter on keyboard and does not change when you navigate.
 for the first one... we'll simply add some inline CSS to make it wider (it still looks ugly, but it's ok for now)
 ```
 <input id="url" style="width:80%">
@@ -16,7 +16,15 @@ function navigate(){
 	api.loadURL(dest)
 }
 ```
-
+now to handling enter - this is done by basic JS event listener 
+```
+  urlInput.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault()
+      navigate()
+    }
+  });
+```
 The most difficult of this is updating the URL field when we navigate.
 Remember that IPC from earlier? - we will use it, but now in the opposite direction (not truly oposite direction, you will see).
 ### Adding callback to did-navigate
