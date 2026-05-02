@@ -70,4 +70,12 @@ app.whenReady().then(() => {
   resizeWv() //call this function once at startup to set size
 })
 ```
+
+### Removing top menu
+Default electron app ships with top menu. This can be usefull for some apps, however we don't want it there, so we will just disable it.
+edit index.js, edit modules loaded from electron to add Menu, and add this line
+```
+Menu.setApplicationMenu(null)
+```
+
 I have also done some other stuff, but it's on same principes so i will not explain more.

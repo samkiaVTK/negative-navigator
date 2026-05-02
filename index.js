@@ -2,6 +2,8 @@ const { app, BrowserWindow, WebContentsView, ipcMain, Menu } = require('electron
 let win
 let view
 
+Menu.setApplicationMenu(null)
+
 function createWindow() {
     win = new BrowserWindow({
     width: 800,
