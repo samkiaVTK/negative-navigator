@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>settings - negative navigator</title>
+    <style>
+        input{width:80%}
+    </style>
+</head>
+
+<body>
+    <button onclick="api.openSettings(false)">&lt;- (close settings)</button>
+    <hr>
+    <div style="margin: 0 5%;">
+        <label for="home">Homepage: </label><input id="home">
+        <br><hr><br>
+        <button onclick="saveConfig()">save</button>
+    </div>
+
+    <script>
+        let homePageInput = document.getElementById("home")
+
+        async function loadConfig() {
+            homePageInput.value = await api.configRead("home")
+        }
+        loadConfig();
+
+        function saveConfig() {
+            api.configSave("home", homePageInput.value)
+            alert("config saved")
+        }
+    </script>
+</body>
+
+</html>

@@ -11,7 +11,7 @@
       if (!dest.startsWith("http")) { dest = "http://" + dest }
       api.loadURL(dest)
     }
-    window.api.onUrlChange((url) => {
+    api.onUrlChange((url) => {
       urlInput.value = url
       document.title = url + " - negative navigator"
     })
@@ -31,10 +31,11 @@
 <body>
   <button onclick="api.goBack()">&lt;-</button>
   <button onclick="api.goForward()">-></button>
-  <button onclick="api.loadURL('https://github.com/samkiaVTK/negative-navigator')">Home</button>
-  <button onclick="api.reload()">&infin;</button>
+  <button onclick="api.goHome()">Home</button>
+  <button onclick="api.reload()">⟳</button>
   <input id="url" style="width:80%">
   <button onclick="navigate()">Go!</button>
+  <button onclick="api.openSettings(true)">⚙</button>
 </body>
 <script>
   //this script must be at the end because it works with DOM (thus needs to have it already)
