@@ -6,6 +6,7 @@ npm install electron-store
 ```
 ### module for storing config
 Because this will contain lot of (currently 1) hardcoded default values, I decided to put it in separate module - separate file.
+
 To do this create new file named *'config-store.js'* and put this inside
 ```
 const Store = require('electron-store').default;
@@ -24,7 +25,9 @@ this creates new Store instance and exports it so we can use it outside of this 
 
 ### IPC handle
 Until now we were only sending messages between processes, but now we need to have some return values (read config file to renderer process). One way is to use approach that we already know - send message to main and when it's handled send another message back. This will work, but will be "too asynchronous", and code wil be longer.
+
 Better aproach is by using *invoke* and *handle*. To add this (for reading config) use this code (handler) in index.js
+
 ```
 ipcMain.handle('config-read', async (event,key) => {
   return configStore.get(key)
@@ -64,6 +67,7 @@ Note that we remove our webContentView - it will stop it from rendering, but wil
 
 ### Storing config changes
 As already mentioned we will use electron store, we have created instance of it with defaults preset.
+
 First of all we must import that module in our main script
 ```
 const configStore = require('./config-store')
@@ -76,9 +80,13 @@ configStore.set(key, value)
 value = configStore.get(key)
 ```
 by default this will write and read to/from file *config.json* located in our app's config folder (where this folder is depends on your OS).
+
   **Linux** ~/.config/app-name/config.json
+  
   *Windows* %appData%\app-name\config.json
+  
   *MacOS*   ~/Library/Application Support/app-name/config.json
+  
 
 ### More minor changes
 There are also some changes which I have not mentioned here - don't need special explanation, check source files, you should already know what they do.
