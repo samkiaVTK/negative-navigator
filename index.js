@@ -1,6 +1,7 @@
 const { app, BrowserWindow, WebContentsView, ipcMain, Menu } = require('electron')
 let win
 let view
+const TOP_MENU_SIZE = 50
 
 Menu.setApplicationMenu(null)
 
@@ -44,9 +45,9 @@ function resizeWv() {
   const bounds = win.getBounds();
   view.setBounds({
     x: 0,
-    y: 50,
+    y: TOP_MENU_SIZE,
     width: bounds.width,
-    height: bounds.height,
+    height: bounds.height-TOP_MENU_SIZE,
   })
 }
 app.whenReady().then(() => {

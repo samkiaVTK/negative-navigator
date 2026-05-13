@@ -52,15 +52,15 @@ window.api.onUrlChange((url) => {
 ```
 we now have event which is handled by specified code - to change URL input value, and also window title
 ### Making webContentView autoresize
-This is really simple, all that's needed is to create function which will handle resizing and set WCV's size to match it, see below
+This is really simple, all that's needed is to create function which will handle resizing and set WCV's size to match it, also note that we must make the WCV a bit smaller (50px) than window because of our top menu (we will use constant to avoid magic numbers, and also because we will probbably change it), see code below
 ```
 function resizeWv() {
   const bounds = win.getBounds();
   view.setBounds({
     x: 0,
-    y: 50,
+    y: TOP_MENU_SIZE,
     width: bounds.width,
-    height: bounds.height,
+    height: bounds.height-TOP_MENU_SIZE,
   })
 }
 app.whenReady().then(() => {
