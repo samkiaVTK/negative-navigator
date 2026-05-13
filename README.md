@@ -23,7 +23,7 @@ in setup guide set entry point as index.js, all other is not that important, at 
   "type": "commonjs"
 }
 ```
-your directory should now contain files package.json and package-lock.json
+your directory should now contain files package.json and package-lock.json *(packages-lock.json are maybe created after creating electron, not sure now)*
 ### First javascript
 create simple js script just to check if node is installed correctly
 filename must be **index.js** and it should contain simple js code such as **console.log('hello')**
