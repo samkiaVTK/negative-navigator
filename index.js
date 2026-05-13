@@ -7,6 +7,8 @@ let win
 let view
 let homeUrl
 
+const TOP_MENU_SIZE = 50
+
 function createWindow() {
   win = new BrowserWindow({
     width: 800,
@@ -65,9 +67,9 @@ function resizeWv() {
   const bounds = win.getBounds();
   view.setBounds({
     x: 0,
-    y: 50,
+    y: TOP_MENU_SIZE,
     width: bounds.width,
-    height: bounds.height,
+    height: bounds.height-TOP_MENU_SIZE,
   })
 }
 app.whenReady().then(() => {
