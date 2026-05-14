@@ -28,4 +28,9 @@ also new file ```forge.config.js``` should be created - it contains info for bun
 npm run make
 ```
 This will bundle your code with electron into a folder, and then pack it into app bundle for specified targets (Linux, macOS, Windows)
+### Electron autoupdate
 
+You can make your app check and auto download updates, this will not be covered int this tutorial. (yet?)
+
+### Note about signing code
+You may also want to sign your code because your users should know that you (trusted developer) made this app and it wasn't tampered by some malicious acter (hacker, bad guy). Also some systems will not let you install unsigned code by default, and if you ever wanted to use electron auto update you must have signed code. Once more, this tutorial does not (yet?) cover it.
